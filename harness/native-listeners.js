@@ -22,6 +22,17 @@ function setupNativeListeners() {
       addons[language].helloGui();
     });
 
+    ipcMain.handle(`${language}-search-applications`, (_event, query) => {
+      const result = addons[language].searchApplications(query);
+      console.log(`${language} searchApplications() called with: ${query}, result: ${result}`);
+      return result;
+    });
+
+    ipcMain.on(`${language}-launch-application`, (_event, id) => {
+      addons[language].launchApplication(id);
+      console.log(`${language} launchApplication() called with: ${id}`);
+    });
+
     // Setup the JavaScript listeners. This is simply a demo to
     // show that you can get data back from the native code.
     addons[language].on('todoAdded', (todo) => {

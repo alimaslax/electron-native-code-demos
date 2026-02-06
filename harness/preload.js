@@ -10,7 +10,8 @@ async function sendHelloWorld(language) {
 contextBridge.exposeInMainWorld('native', {
   swift: {
     helloWorld: () => sendHelloWorld('swift'),
-    helloGui: () => ipcRenderer.send('swift-hello-gui'),
+    searchApplications: (query) => ipcRenderer.invoke('swift-search-applications', query),
+    launchApplication: (id) => ipcRenderer.send('swift-launch-application', id),
   },
   platform: process.platform
 });

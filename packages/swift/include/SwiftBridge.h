@@ -1,15 +1,13 @@
-#ifndef SwiftBridge_h
-#define SwiftBridge_h
-
 #import <Foundation/Foundation.h>
 
 @interface SwiftBridge : NSObject
-+ (NSString*)helloWorld:(NSString*)input;
-+ (void)helloGui;
 
-+ (void)setTodoAddedCallback:(void(^)(NSString* todoJson))callback;
-+ (void)setTodoUpdatedCallback:(void(^)(NSString* todoJson))callback;
-+ (void)setTodoDeletedCallback:(void(^)(NSString* todoId))callback;
++ (NSString *)helloWorld:(NSString *)input;
++ (NSString *)searchApplications:(NSString *)query;
++ (void)launchApplication:(NSString *)id;
+
++ (void)setTodoAddedCallback:(void (^)(NSString *))callback;
++ (void)setTodoUpdatedCallback:(void (^)(NSString *))callback;
++ (void)setTodoDeletedCallback:(void (^)(NSString *))callback;
+
 @end
-
-#endif
