@@ -1,13 +1,10 @@
 const { ipcMain } = require('electron');
 
-const languages = ['swift', 'objective-c', 'cpp-win32', 'cpp-linux'];
+const languages = ['swift'];
 
 // Require the addons available on the current platform.
 const addons = {
-  swift: process.platform === 'darwin' ? require('swift') : null,
-  'objective-c': process.platform === 'darwin' ? require('objective-c') : null,
-  'cpp-win32': process.platform === 'win32' ? require('cpp-win32') : null,
-  'cpp-linux': process.platform === 'linux' ? require('cpp-linux') : null,
+  swift: process.platform === 'darwin' ? require('swift') : null
 }
 
 function setupNativeListeners() {

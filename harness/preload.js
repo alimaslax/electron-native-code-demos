@@ -12,18 +12,6 @@ contextBridge.exposeInMainWorld('native', {
     helloWorld: () => sendHelloWorld('swift'),
     helloGui: () => ipcRenderer.send('swift-hello-gui'),
   },
-  'objective-c': {
-    helloWorld: () => sendHelloWorld('objective-c'),
-    helloGui: () => ipcRenderer.send('objective-c-hello-gui'),
-  },
-  cppWin32: {
-    helloWorld: () => sendHelloWorld('cpp-win32'),
-    helloGui: () => ipcRenderer.send('cpp-win32-hello-gui'),
-  },
-  cppLinux: {
-    helloWorld: () => sendHelloWorld('cpp-linux'),
-    helloGui: () => ipcRenderer.send('cpp-linux-hello-gui'),
-  },
   platform: process.platform
 });
 
